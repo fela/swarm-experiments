@@ -6,7 +6,7 @@
 #include <QtGui/QGraphicsScene>
 
 Bird::Bird(QGraphicsItem *parent) :
-    QGraphicsEllipseItem(parent)
+    QGraphicsRectItem(parent)
 {
     _maxSpeed = Rand::randFloat(5, 30);
     _maxAcceleration = 0.3;

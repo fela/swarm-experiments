@@ -1,9 +1,9 @@
 #ifndef BIRD_H
 #define BIRD_H
 
-#include <QGraphicsEllipseItem>
+#include <QGraphicsRectItem>
 
-class Bird : public QGraphicsEllipseItem
+class Bird : public QGraphicsRectItem
 {
 public:
     explicit Bird(QGraphicsItem *parent = 0);
