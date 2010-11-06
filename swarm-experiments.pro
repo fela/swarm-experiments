@@ -13,12 +13,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     scene.cpp \
-    bird.cpp
+    bird.cpp \
+    rand.cpp
 
 HEADERS  += mainwindow.h \
     scene.h \
     bird.h \
-    settings.h
+    settings.h \
+    rand.h
 
 OTHER_FILES += \
     .gitignore

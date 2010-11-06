@@ -2,6 +2,7 @@
 
 #include "bird.h"
 #include "settings.h"
+#include "rand.h"
 
 #include <QtCore/QTimer>
 
@@ -34,12 +35,7 @@ void Scene::populate(int n)
         Bird * b = new Bird();
 
         // set a random position
-        QRectF r = sceneRect();
-        qreal x = qrand() / static_cast<qreal>(RAND_MAX) * r.width();
-        qreal y = qrand() / static_cast<qreal>(RAND_MAX) * r.height();
-        x += r.x();
-        y += r.y();
-        b->setPos(QPointF(x, y));
+        b->setPos(Rand::randPointF(sceneRect()));
 
         addItem(b);
     }

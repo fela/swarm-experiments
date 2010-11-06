@@ -1,6 +1,7 @@
 #include "bird.h"
 
 #include "settings.h"
+#include "rand.h"
 
 #include <QtGui/QGraphicsScene>
 
@@ -19,10 +20,10 @@ void Bird::advance(int phase)
         // do nothing
         return;
     }
+
     qreal s = Settings::BIRD_SIZE;
-    qreal dx = qrand() / static_cast<qreal>(RAND_MAX) * s - s/2.0;
-    qreal dy = qrand() / static_cast<qreal>(RAND_MAX) * s - s/2.0;
-    setPos(pos() + QPointF(dx, dy));
+    QPointF movement = Rand::randPointF(-s/2.0, s/2.0);
+    setPos(pos() + movement);
 
     // detect when the bird falls outside the scene
     // rects are used for improved efficiency

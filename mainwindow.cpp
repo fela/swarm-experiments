@@ -16,15 +16,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     if (Settings::USE_ANTIALIASING) {
         view->setRenderHint(QPainter::Antialiasing);
-        qDebug() << "Antialiasing enabled\n";
+        qDebug() << "Antialiasing enabled";
     }
 
     if (Settings::USE_OPENGL) {
         view->setViewport(new QGLWidget());
-        qDebug() << "OpenGL enabled\n";
+        qDebug() << "OpenGL enabled";
     }
 
-    // copied from the internet, might be useful...
+    // copied from the tutorial, might be useful...
     //view.setCacheMode(QGraphicsView::CacheBackground);
     //view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     //view.setDragMode(QGraphicsView::ScrollHandDrag);

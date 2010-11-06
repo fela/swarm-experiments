@@ -10,6 +10,10 @@ public:
 
 private:
     void advance(int phase);
+
+    QPointF _speed;
+    QPointF _maxSpeed;
+    QPointF _maxAcceleration;
 };
 
 #endif // BIRD_H
