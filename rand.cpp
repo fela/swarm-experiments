@@ -1,6 +1,7 @@
 #include "rand.h"
 
 #include <cstdlib> // for RAND_MAX
+#include <cmath>
 
 
 namespace Rand {
@@ -37,6 +38,10 @@ QPointF randPointF(const QRectF &r) {
     return QPointF(x, y);
 }
 
+QPointF randDirection() {
+    qreal angle = randFloat(2*M_PI);
+    return QPointF(cos(angle), sin(angle));
+}
 
 // a random point in the rect (min.x, min.y, max.x, max.y)
 //QPointF randPointF(const QPointF &min, const QPointF &max) {

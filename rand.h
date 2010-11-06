@@ -24,6 +24,9 @@ QPointF randPointF(qreal min, qreal max);
 // a random point in a rect
 QPointF randPointF(const QRectF &r);
 
+// a random direction
+QPointF randDirection();
+
 
 // a random point in the rect (min.x, min.y, max.x, max.y)
 //QPointF randPointF(const QPointF &min, const QPointF &max) {
