@@ -23,4 +23,11 @@ void Bird::advance(int phase)
     qreal dx = qrand() / static_cast<qreal>(RAND_MAX) * s - s/2.0;
     qreal dy = qrand() / static_cast<qreal>(RAND_MAX) * s - s/2.0;
     setPos(pos() + QPointF(dx, dy));
+
+    // detect when the bird falls outside the scene
+    // rects are used for improved efficiency
+    if ( ! scene()->sceneRect().contains(boundingRect().translated(pos())) ) {
+        scene()->removeItem(this);
+        return;
+    }
 }
