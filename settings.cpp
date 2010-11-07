@@ -17,6 +17,11 @@ Settings::~Settings()
     delete ui;
 }
 
+
+bool Settings::openGL() {return ui->openGLBox->isChecked();}
+bool Settings::antialiasing() {return ui->antialiasingBox->isChecked();}
+
+
 void Settings::on_openGLBox_toggled(bool checked)
 {
     emit openGLToggled(checked);

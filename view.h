@@ -12,7 +12,8 @@ public:
 signals:
 
 public slots:
-
+    void setOpenGL(bool enabled);
+    void setAntialiasing(bool enabled);
 };
 
 #endif // VIEW_H

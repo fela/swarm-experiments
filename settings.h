@@ -20,12 +20,14 @@ public:
     // every second speed *= friction
     static const qreal FRICTION_PER_SECOND = 0.65;
 
-    static const unsigned int INITIAL_POPULATION = 500;
-    static const qreal BIRD_SIZE = 2;
+    static const unsigned int INITIAL_POPULATION = 50;
+    static const qreal BIRD_SIZE = 4;
 
 
-    static const bool USE_ANTIALIASING = false;
-    static const bool USE_OPENGL = true;
+    bool openGL();
+    bool antialiasing();
+    //static const bool USE_ANTIALIASING = false;
+    //static const bool USE_OPENGL = true;
     static const qreal FPS = 20; // aproximate
     // friction per frame
     static qreal FRICTION;
