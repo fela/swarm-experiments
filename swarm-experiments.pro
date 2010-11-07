@@ -14,7 +14,8 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     scene.cpp \
     bird.cpp \
-    rand.cpp
+    rand.cpp \
+    settings.cpp
 
 HEADERS  += mainwindow.h \
     scene.h \
@@ -26,3 +27,6 @@ OTHER_FILES += \
     .gitignore
 
 DEPENDPATH += .
+
+FORMS += \
+    settings.ui
