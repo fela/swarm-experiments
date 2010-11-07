@@ -6,18 +6,17 @@
 
 #include <QtCore/QTimer>
 
-Scene::Scene(QObject *parent) :
-    QGraphicsScene(parent), timer(0)
+Scene::Scene(SceneSettings settings) : timer(0)
 {
-    qreal w = Settings::SCENE_WIDTH;
-    qreal h = Settings::SCENE_HEIGHT;
+    qreal w = settings.width;
+    qreal h = settings.heigth;
     setSceneRect(0, 0, w, h);
     setBackgroundBrush(Settings::SCENE_BACKGROUND);
 
     // add a rect as the background for the birds "arena"
     addRect(0, 0, w, h, Qt::NoPen, Settings::SCENE_COLOR);
 
-    populate(Settings::INITIAL_POPULATION);
+    populate(settings.birds, settings.birdSize);
 
     timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), SLOT(advance()));
@@ -29,10 +28,10 @@ Scene::~Scene()
     delete timer;
 }
 
-void Scene::populate(int n)
+void Scene::populate(int n, int size)
 {
     for (int i = 0; i < n; ++i) {
-        Bird * b = new Bird();
+        Bird * b = new Bird(size);
 
         // set a random position
         b->setPos(Rand::randPointF(sceneRect()));

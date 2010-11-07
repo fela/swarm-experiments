@@ -6,7 +6,7 @@
 class Bird : public QGraphicsRectItem
 {
 public:
-    explicit Bird(QGraphicsItem *parent = 0);
+    explicit Bird(int size);
 
 private:
     void advance(int phase);

@@ -21,6 +21,16 @@ Settings::~Settings()
 bool Settings::openGL() {return ui->openGLBox->isChecked();}
 bool Settings::antialiasing() {return ui->antialiasingBox->isChecked();}
 
+SceneSettings Settings::sceneSettings()
+{
+    SceneSettings res;
+    res.width = ui->widthBox->value();
+    res.heigth = ui->heightBox->value();
+    res.birds = ui->birdsBox->value();
+    res.predators = ui->birdsBox->value();
+    res.birdSize = ui->birdSizeBox->value();
+    return res;
+}
 
 void Settings::on_openGLBox_toggled(bool checked)
 {
@@ -30,4 +40,9 @@ void Settings::on_openGLBox_toggled(bool checked)
 void Settings::on_antialiasingBox_toggled(bool checked)
 {
     emit antialiasingToggled(checked);
+}
+
+void Settings::on_createSceneButton_clicked()
+{
+    emit createSceneClicked(sceneSettings());
 }

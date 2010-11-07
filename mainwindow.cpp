@@ -12,8 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
     Settings *settings = new Settings(this);
     addDockWidget(Qt::RightDockWidgetArea, settings);
 
+    View *view = new View(new Scene(settings->sceneSettings()));
 
-    View *view = new View(new Scene());
     connect(settings, SIGNAL(openGLToggled(bool)),
             view, SLOT(setOpenGL(bool)));
     connect(settings, SIGNAL(antialiasingToggled(bool)),
@@ -22,9 +22,20 @@ MainWindow::MainWindow(QWidget *parent)
     view->setOpenGL(settings->openGL());
     view->setAntialiasing(settings->antialiasing());
     setCentralWidget(view);
+
+
+    connect(settings, SIGNAL(createSceneClicked(SceneSettings)),
+            SLOT(createNewScene(SceneSettings)));
 }
 
 MainWindow::~MainWindow()
 {
 
+}
+
+
+void MainWindow::createNewScene(SceneSettings settings)
+{
+    View *view = static_cast<View *>(centralWidget());
+    view->setScene(new Scene(settings));
 }

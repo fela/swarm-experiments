@@ -5,13 +5,11 @@
 
 #include <QtGui/QGraphicsScene>
 
-Bird::Bird(QGraphicsItem *parent) :
-    QGraphicsRectItem(parent)
+Bird::Bird(int size)
 {
     _maxSpeed = Rand::randFloat(5, 30);
     _maxAcceleration = 0.3;
-    qreal s = Settings::BIRD_SIZE;
-    setRect(-s/2.0, -s/2.0, s, s);
+    setRect(-size/2.0, -size/2.0, size, size);
     setPen(Qt::NoPen);
     setBrush(Qt::red);
 }
@@ -29,9 +27,9 @@ void Bird::advance(int phase)
 
     QPointF acc = Rand::randDirection() * Rand::randFloat(_maxAcceleration);
 
-
-    // some very simple code to avoid falling outside the scene
-    QPointF center(Settings::SCENE_WIDTH/2.0, Settings::SCENE_HEIGHT/2.0);
+    // some very simple logic to avoid falling outside the scene
+    QRectF r = scene()->sceneRect();
+    QPointF center(r.width()/2.0, r.height()/2.0);
     acc += (center - pos()) * 0.00005;
     accelerate(acc);
 

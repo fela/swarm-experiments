@@ -3,11 +3,18 @@
 
 #include <QGraphicsView>
 
+class SceneSettings;
+
 class View : public QGraphicsView
 {
     Q_OBJECT
 public:
+    // has ownership of the scene
     explicit View(QGraphicsScene *scene = 0);
+    virtual ~View();
+
+    // destroys the old scene!
+    void setScene(QGraphicsScene *scene);
 
 signals:
 

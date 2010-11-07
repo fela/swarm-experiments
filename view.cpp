@@ -15,6 +15,17 @@ View::View(QGraphicsScene *scene) :
     //view.setDragMode(QGraphicsView::ScrollHandDrag);
 }
 
+View::~View()
+{
+    delete scene();
+}
+
+void View::setScene(QGraphicsScene *newScene)
+{
+    delete scene();
+    QGraphicsView::setScene(newScene);
+}
+
 void View::setOpenGL(bool enabled)
 {
     QWidget *w = enabled ? new QGLWidget() : new QWidget();
