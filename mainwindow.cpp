@@ -2,35 +2,14 @@
 
 #include "scene.h"
 #include "settings.h"
-
-#include <QtCore/QDebug>
-#include <QtGui/QGraphicsView>
-#include <QtOpenGL/QGLWidget>
+#include "view.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    QGraphicsView *view = new QGraphicsView(new Scene());
-
-    view->setFrameShape(QFrame::NoFrame);
-
-    if (Settings::USE_ANTIALIASING) {
-        view->setRenderHint(QPainter::Antialiasing);
-        qDebug() << "Antialiasing enabled";
-    }
-
-    if (Settings::USE_OPENGL) {
-        view->setViewport(new QGLWidget());
-        qDebug() << "OpenGL enabled";
-    }
-
-    // copied from the tutorial, might be useful...
-    //view.setCacheMode(QGraphicsView::CacheBackground);
-    //view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
-    //view.setDragMode(QGraphicsView::ScrollHandDrag);
-
     setWindowTitle("The Swarm!");
-    setCentralWidget(view);
+    addDockWidget(Qt::RightDockWidgetArea, new Settings(this));
+    setCentralWidget(new View(new Scene()));
 }
 
 MainWindow::~MainWindow()

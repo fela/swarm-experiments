@@ -15,13 +15,15 @@ SOURCES += main.cpp\
     scene.cpp \
     bird.cpp \
     rand.cpp \
-    settings.cpp
+    settings.cpp \
+    view.cpp
 
 HEADERS  += mainwindow.h \
     scene.h \
     bird.h \
     settings.h \
-    rand.h
+    rand.h \
+    view.h
 
 OTHER_FILES += \
     .gitignore
