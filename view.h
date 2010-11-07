@@ -7,6 +7,8 @@ class SceneSettings;
 
 class View : public QGraphicsView
 {
+    qreal current_zoom;
+
     Q_OBJECT
 public:
     // has ownership of the scene
@@ -21,6 +23,7 @@ signals:
 public slots:
     void setOpenGL(bool enabled);
     void setAntialiasing(bool enabled);
+    void setZoom(qreal zoom);
 };
 
 #endif // VIEW_H

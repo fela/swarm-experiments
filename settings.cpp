@@ -46,3 +46,8 @@ void Settings::on_createSceneButton_clicked()
 {
     emit createSceneClicked(sceneSettings());
 }
+
+void Settings::on_zoomSlider_valueChanged(int value)
+{
+    emit zoomChanged(pow(2, value/3.0));
+}

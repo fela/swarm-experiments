@@ -18,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent)
             view, SLOT(setOpenGL(bool)));
     connect(settings, SIGNAL(antialiasingToggled(bool)),
             view, SLOT(setAntialiasing(bool)));
+    connect(settings, SIGNAL(zoomChanged(qreal)),
+            view, SLOT(setZoom(qreal)));
+
     // initialize correctly
     view->setOpenGL(settings->openGL());
     view->setAntialiasing(settings->antialiasing());

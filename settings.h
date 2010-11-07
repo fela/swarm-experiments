@@ -41,11 +41,13 @@ signals:
     void openGLToggled(bool enabled);
     void antialiasingToggled(bool enabled);
     void createSceneClicked(SceneSettings settings);
+    void zoomChanged(qreal zoom);
 
 private:
     Ui::Settings *ui;
 
 private slots:
+    void on_zoomSlider_valueChanged(int value);
     void on_createSceneButton_clicked();
     void on_openGLBox_toggled(bool checked);
     void on_antialiasingBox_toggled(bool checked);
